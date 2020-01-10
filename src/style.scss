@@ -10,6 +10,7 @@ $blue: #F81894;
 }
 html{
    font-family: 'Roboto';
+   line-height: 1.5rem;
 }
 header{
    background: linear-gradient(rgba(250, 250, 250, .8), rgba(250, 250, 250, .8)),  url(./img/bg.png) no-repeat top center;
@@ -28,8 +29,8 @@ ul{
 }
 h1{
    font-size: 5rem;
+   line-height: 6rem;
    letter-spacing: 2px;
-   
 }
 h2{
    text-align: center;
@@ -54,6 +55,7 @@ h2{
    justify-content: center;
    align-items: center;
    min-height: 90vh;
+   padding: 0 20px;
 }
 .text{  
    color: $blue;
@@ -61,31 +63,35 @@ h2{
    text-shadow: 0px 5px 10px rgba(0,0,0,.7);
 }
 .about{
-   padding: 80px;
+   padding: 60px 20%;
 }
 .about_me{
-   width: 50vw;
    margin: 0 auto;
 }
 .technology{
-   padding: 50px 0;
+   padding: 50px 20px;
    background: #EAEAEA;
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   grid-gap: 20px;
    justify-content: space-around;
 }
 .technology-img{
-   height: 70px;
-   width: auto;
+   width: 100%;
+   height: auto;
+   max-width: 70px;
+   display: block;
+   margin: 0 auto;
 }
 .portfolio{
-   padding: 60px 20px;
    text-align: center;
    display: grid;
    grid-template-areas: 
    "header header"
    "menu content";
-   grid-template-columns: 300px 1fr;
+   grid-template-columns: 200px 1fr;
    grid-gap: 10px;
+   padding: 60px 80px;
 }
 #portfolio-header{
    grid-area: header;
@@ -97,7 +103,6 @@ h2{
    display: grid;
    grid-column: 1fr;
    text-align: left;
-   padding-left: 40px;
 }
 .side-menu_item{
    line-height: 2rem;
@@ -110,12 +115,13 @@ h2{
 #portfolio-content{
    grid-area: content;
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(auto-fit, 320px);
    grid-template-rows: auto;
-   grid-gap: 20px;
+   grid-gap: 40px;
+   justify-content: space-around;
 }
-.portfolio-content-img{
-   width: 250px;
+.portfolio-content-img{ 
+   width: 100%;
    height: auto;
    box-shadow: 0 3px 6px rgba(0,0,0,.4);
 }
@@ -142,4 +148,67 @@ footer{
    height: auto;
    padding: 3px;
    margin: 0 5px;
+}
+
+@media screen and (max-width: 1024px){
+   .portfolio{
+      grid-template-columns: 180px 1fr;
+      padding: 60px 40px;
+   }
+   #portfolio-content{
+      grid-gap: 20px;
+   }
+}
+@media screen and (max-width: 700px){
+   h1{
+      font-size: 4rem;
+      line-height: 5rem;
+   }
+}
+@media screen and (max-width: 600px){
+   h1{
+      font-size: 3rem;
+      line-height: 4rem;
+      letter-spacing: 1.6px;
+   }
+   .about{
+      padding: 30px 10%;
+   }
+   .portfolio{
+      grid-template-columns: 155px 1fr;
+      padding: 60px 30px;
+   }
+}
+@media screen and (max-width: 550px){
+   h1{
+      font-size: 2.6rem;
+      line-height: 2.8rem;
+      letter-spacing: 1.4px;
+   }
+   #title{
+      font-size: 1.6rem;
+      line-height: 1.7rem;
+      letter-spacing: 1.2px;
+   }
+   .technology{
+      padding: 30px 10px;
+      grid-gap: 10px;
+   }
+   .portfolio{
+      grid-template-areas: 
+      "header"
+      "menu" 
+      "content";
+      grid-template-columns: 1fr;
+      padding: 60px 30px;
+   }
+   #portfolio-content{
+      grid-template-columns: repeat(auto-fit, 280px);
+   }
+   footer{
+      flex-direction: column;
+   }
+   .social-img{
+      padding-top: 20px;
+   }
 }
