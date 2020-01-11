@@ -69,8 +69,8 @@ function activeMenuItem() {
          if (r != w + t) {
             requestAnimationFrame(step)
          } else { 
-            window.scrollTo(0, t + w - menuHeight)
-            //location.hash = hash  -  URL с хэшем если меню не fixed
+            //window.scrollTo(0, t + w - menuHeight) // if menu is fixed
+            location.hash = hash // -  URL с хэшем если меню не fixed
          }
       };
    }
