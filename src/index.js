@@ -1,49 +1,105 @@
-import"./style.scss";
+import "./style.scss";
 import 'roboto-fontface';
 
+// burger
 
-
-function burgerMenu(){
-   document.querySelector(".burger").addEventListener("click", function(){
+function burgerMenu() {
+   document.querySelector(".burger").addEventListener("click", function () {
       document.querySelector(".top-menu").classList.toggle("show");
    })
 }
 
-function menuActiveItem(){
-   const menuItems = document.querySelectorAll(".top-menu_item");
-   menuItems.forEach(item => item.addEventListener("click", function(){
-      document.querySelector(".active").classList.remove("active");
-      item.classList.add("active");
-   }));
+//--------------------------
+
+// active menu item
+
+let menuItems = Array.from(document.querySelectorAll(".item"));
+
+let anchors = menuItems.map(el => { 
+   let hash = el.href.replace(/[^#]*(.*)/, '$1'); 
+   return hash;
+})
+
+let sections = anchors.map(hash => {
+   let block = document.querySelector(hash);
+   return block ;
+})
+
+let menuHeight = document.querySelector(".top-menu").offsetHeight;
+let V = .1;
+
+function activeMenuItem() {
+   menuItems.forEach(elem => {
+      elem.addEventListener('click', function (e) {
+         e.preventDefault();
+         scrollMenu(elem); 
+         
+         menuItems.forEach((nl) => {
+            if (nl != this) {
+               nl.parentNode.classList.remove('active');
+            }
+         });
+
+         this.parentNode.classList.add('active');
+        // document.querySelector(".navbar-collapse").classList.toggle("show")
+      }, false);
+   });
 }
 
-// scroll menu
+   // scroll menu
 
-function scrollMenu(){
-   const anchors = document.querySelectorAll('a[href*="#"]:not([href="#"]');
-   let animationTime = 300;
-   let framesCount = 20;
-   anchors.forEach(item => {
-   item.addEventListener('click', function(e) {
-   e.preventDefault();
-   let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset;
-   let scroller = setInterval(function() {
-   let scrollBy = coordY / framesCount;
-   if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
-   window.scrollBy(0, scrollBy);
-   } else {
-   window.scrollTo(0, coordY);
-   clearInterval(scroller);
+   function scrollMenu(item) {
+      let w = window.pageYOffset; 
+      let hash = item.href.replace(/[^#]*(.*)/, '$1'); 
+      let t = document.querySelector(hash).getBoundingClientRect().top; 
+
+      let start = null;
+   
+      requestAnimationFrame(step);
+   
+      function step(time) {
+         let menuHeight = document.querySelector(".top-menu").offsetHeight;
+
+         if (start === null) start = time;
+
+         let progress = time - start;
+         let r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
+         window.scrollTo(0, r);
+
+         if (r != w + t) {
+            requestAnimationFrame(step)
+         } else { 
+            window.scrollTo(0, t + w - menuHeight)
+            //location.hash = hash  -  URL с хэшем если меню не fixed
+         }
+      };
    }
-   }, animationTime / framesCount);
-   });
-   });
+   
+   // scroll page
+
+function scrollPage(){
+   let menuItems = Array.from(document.querySelectorAll(".item"));
+   window.addEventListener('scroll', activeBlock);
+
+   function activeBlock(){
+      sections.forEach(item => {
+         let start = item.offsetTop - menuHeight;
+         let end = item.offsetTop + item.offsetHeight/1.3;
+
+         if (pageYOffset > start && pageYOffset < end){
+            document.querySelector(".active").classList.remove("active");
+            let index = sections.indexOf(item);
+            menuItems[index].parentNode.classList.add("active");
+         }
+      })
+   }
 }
+
 
 // go to top
 let scrollButton = document.querySelector(".scroll_top");
 
-function goToTop(){
+function goToTop() {
    window.addEventListener("scroll", trackScroll);
    scrollButton.addEventListener("click", goUp);
 }
@@ -61,15 +117,15 @@ function trackScroll() {
 
 function goUp() {
    if (window.pageYOffset > 0) {
-     window.scrollBy(0, -80);
-     setTimeout(goUp, 0);
+      window.scrollBy(0, -80);
+      setTimeout(goUp, 0);
    };
    document.querySelector(".active").classList.remove("active");
    document.querySelector('a[href="#home"]').parentNode.classList.add("active");
 }
 
 
-menuActiveItem()
+activeMenuItem()
 burgerMenu()
-scrollMenu()
+scrollPage()
 goToTop()

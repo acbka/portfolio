@@ -8,13 +8,13 @@
    <title>Portfolio</title>
 </head>
 <body>
-   <header>
+   <header id="home">
       <nav>
          <ul class="top-menu">
-            <li class="top-menu_item active"><a href="#home">About</a></li>
-            <li class="top-menu_item"><a href="#technology">Technology</a></li>
-            <li class="top-menu_item"><a href="#portfolio">Portfolio</a></li>
-            <li class="top-menu_item"><a href="#contacts">Contacts</a></li>
+            <li class="top-menu_item active"><a class="item" href="#home">About</a></li>
+            <li class="top-menu_item"><a class="item" href="#technology">Technology</a></li>
+            <li class="top-menu_item"><a class="item" href="#portfolio">Portfolio</a></li>
+            <li class="top-menu_item"><a class="item" href="#contacts">Contacts</a></li>
          </ul>
          <div class="burger toggle">
             <div class="burger-container">
@@ -45,64 +45,70 @@
       </div>
       <div class="portfolio" id="portfolio">
          <h2 id="portfolio-header">Portfolio</h2>
-            <div id="portfolio-menu">
-               <ul class="side-menu">
-                  <li class="side-menu_item">All</li>
-                  <li class="side-menu_item">Bootstrap</li>
-                  <li class="side-menu_item">jQuery</li>
-                  <li class="side-menu_item">JavaScript</li>
-                  <li class="side-menu_item">Angular</li>
-                  <li class="side-menu_item">CSS flex/gid</li>
-                  <li class="side-menu_item">GASP/GWD</li>
-               </ul>
-            </div>
-
-            <div id="portfolio-content">
-               <a class="js gwd gasp" href="https://acbka.github.io/Cars-GWD/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/cars.png" alt="">
-               </a>
-               <a class="bootstrap js" href="https://acbka.github.io/john-smith/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/john.png" alt="">
-               </a>
-               <a class="js gwd gasp" href="https://acbka.github.io/Roskill-GS/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/roskill.png" alt="">
-               </a>
-               <a class="bootstrap js" href="https://acbka.github.io/mycompany/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/mycompany.png" alt="">
-               </a>
-               <a class="angular bootstrap js" href="https://granny-10517.web.app/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/granny.png" alt="">
-               </a>
-               <a class="bootstrap js" href="https://acbka.github.io/Make-your-body/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/body.png" alt="">
-               </a>
-               <a class="js gwd gasp" href="https://acbka.github.io/Widget-GWD/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/widget.png" alt="">
-               </a>
-               <a class="flex jquery" href="https://thebarbershop-2019.firebaseapp.com/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/barber.png" alt="">
-               </a>
-               <a class="js gwd gasp" href="https://acbka.github.io/College-GS/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/college.png" alt="">
-               </a>
-               <a class="bootstrap" href="https://okflowers.org/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/okflowers.png" alt="">
-               </a>
-               <a class="js gwd gasp" href="https://acbka.github.io/Dreamtour-GS/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/deramtour.png" alt="">
-               </a>
-               <a class="bootstrap jquery" href="http://wedding-flowers.zzz.com.ua/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/wedding.png" alt="">
-               </a>
-               <a class="bootstrap js" href="https://acbka.github.io/avtomotive/" target="_blank">
-                  <img class="portfolio-content-img" src="./src/img/automotive.png" alt="">
-               </a>
+         <div id="portfolio-menu">
+            <ul class="side-menu">
+               <li class="side-menu_item">All</li>
+               <li class="side-menu_item">Bootstrap</li>
+               <li class="side-menu_item">jQuery</li>
+               <li class="side-menu_item">JavaScript</li>
+               <li class="side-menu_item">Angular</li>
+               <li class="side-menu_item">CSS flex/gid</li>
+               <li class="side-menu_item">GASP/GWD</li>
+            </ul>
+         </div>
+         <div id="portfolio-content">
+            <a class="js gwd gasp" href="https://acbka.github.io/Cars-GWD/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/cars.png" alt="">
+            </a>
+            <a class="bootstrap js" href="https://acbka.github.io/john-smith/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/john.png" alt="">
+            </a>
+            <a class="js gwd gasp" href="https://acbka.github.io/Roskill-GS/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/roskill.png" alt="">
+            </a>
+            <a class="bootstrap js" href="https://acbka.github.io/mycompany/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/mycompany.png" alt="">
+            </a>
+            <a class="angular bootstrap js" href="https://granny-10517.web.app/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/granny.png" alt="">
+            </a>
+            <a class="bootstrap js" href="https://acbka.github.io/Make-your-body/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/body.png" alt="">
+            </a>
+            <a class="js gwd gasp" href="https://acbka.github.io/Widget-GWD/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/widget.png" alt="">
+            </a>
+            <a class="flex jquery" href="https://thebarbershop-2019.firebaseapp.com/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/barber.png" alt="">
+            </a>
+            <a class="js gwd gasp" href="https://acbka.github.io/College-GS/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/college.png" alt="">
+            </a>
+            <a class="bootstrap" href="https://okflowers.org/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/okflowers.png" alt="">
+            </a>
+            <a class="js gwd gasp" href="https://acbka.github.io/Dreamtour-GS/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/deramtour.png" alt="">
+            </a>
+            <a class="bootstrap jquery" href="http://wedding-flowers.zzz.com.ua/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/wedding.png" alt="">
+            </a>
+            <a class="bootstrap js" href="https://acbka.github.io/avtomotive/" target="_blank">
+               <img class="portfolio-content-img" src="./src/img/automotive.png" alt="">
+            </a>
+            <a href="https://acbka.github.io/sale-GS/" target="_blank">
                <img class="portfolio-content-img" src="./src/img/sale.png" alt="">
+            </a>
+            <a href="https://acbka.github.io/gym-GS/" target="_blank">
                <img class="portfolio-content-img" src="./src/img/gym.png" alt="">
+            </a>
+            <a href="http://humor.rf.gd/" target="_black">
                <img class="portfolio-content-img" src="./src/img/humor.png" alt="">
+            </a>
+            <a href="https://acbka.github.io/web-GWD/" target="_blank">
                <img class="portfolio-content-img" src="./src/img/web.png" alt="">
-            </div>
-         
+            </a>
+         </div>   
       </div>
    </main>
    <footer id="contacts">
