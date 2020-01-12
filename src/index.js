@@ -129,7 +129,7 @@ function goUp() {
    document.querySelector('a[href="#home"]').parentNode.classList.add("active");
 }
 
-
+// portfolio
 
 function portfolio(){
    let links = document.querySelectorAll(".side-menu_item");
@@ -141,39 +141,37 @@ function portfolio(){
          linkName = "." + link.dataset.item; // get value from data-item 
 
          if (linkName != oldLinkName) {
-            removeOldElements(showCurrentElements);
-            
+            hideOldElements().then(removeOldElements).then(showCurrentElements);
             oldLinkName = linkName;
          }
       })   
    })
    
-
-   async function removeOldElements(callback){
-      let shownElements = document.querySelectorAll(".visible");
-     
+   async function hideOldElements(){
+      let shownElements = document.querySelectorAll(".visible"); 
       shownElements.forEach(elem => {
          elem.classList.add("hidden");
+      }); 
+   }
+
+   async function removeOldElements(){
+      let shownElements = document.querySelectorAll(".visible"); 
+      shownElements.forEach(elem => {
          elem.classList.remove("visible");
-         console.log("1")
-         elem.addEventListener('transitionend', function(){
-            elem.classList.add("none");
-            elem.classList.remove("hidden"); console.log("2")
-         }, false);
+         elem.classList.add("none");
+         elem.classList.remove("hidden"); 
       })
       
-     callback()
-   }
+   }; 
 
    function showCurrentElements(){
       let elements = Array.from(document.querySelectorAll(linkName));
 
       elements.forEach(elem => {
          elem.classList.remove("none"); 
-         elem.classList.add("visible"); console.log("3")
+         elem.classList.add("visible"); 
       })
    }
-
 
 }
 
