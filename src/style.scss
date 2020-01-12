@@ -288,9 +288,9 @@ h2 {
    box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
 }
 .all{
-   opacity: 0;
+   opacity: 1;
    display: block;
-   transition: all 30s ease-in;
+   transition: all 10s ease-in;
 }
 .visible{
    opacity: 1;
@@ -298,7 +298,7 @@ h2 {
 .hidden{
    opacity: 0;
 }
-.none{
+.hide{
    display: none;
 }
 

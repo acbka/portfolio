@@ -133,46 +133,24 @@ function goUp() {
 
 function portfolio(){
    let links = document.querySelectorAll(".side-menu_item");
-   //let allPict = document.querySelectorAll(".all");
+   let allPict = document.querySelectorAll(".all");
    let linkName = null;
    let oldLinkName = null;
    links.forEach(link => {
       link.addEventListener("click", function(){
-         linkName = "." + link.dataset.item; // get value from data-item 
+         linkName = link.dataset.item; // get value from data-item 
 
-         if (linkName != oldLinkName) {
-            hideOldElements().then(removeOldElements).then(showCurrentElements);
-            oldLinkName = linkName;
-         }
+         allPict.forEach(pict => {
+            if (!pict.classList.contains(linkName)) {
+               pict.classList.add("hide")
+            } else {
+               if (pict.classList.contains("hide")) {
+                  pict.classList.remove("hide")
+               }
+            }
+         })
       })   
    })
-   
-   async function hideOldElements(){
-      let shownElements = document.querySelectorAll(".visible"); 
-      shownElements.forEach(elem => {
-         elem.classList.add("hidden");
-      }); 
-   }
-
-   async function removeOldElements(){
-      let shownElements = document.querySelectorAll(".visible"); 
-      shownElements.forEach(elem => {
-         elem.classList.remove("visible");
-         elem.classList.add("none");
-         elem.classList.remove("hidden"); 
-      })
-      
-   }; 
-
-   function showCurrentElements(){
-      let elements = Array.from(document.querySelectorAll(linkName));
-
-      elements.forEach(elem => {
-         elem.classList.remove("none"); 
-         elem.classList.add("visible"); 
-      })
-   }
-
 }
 
 //start()
