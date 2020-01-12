@@ -129,8 +129,59 @@ function goUp() {
    document.querySelector('a[href="#home"]').parentNode.classList.add("active");
 }
 
+
+
+function portfolio(){
+   let links = document.querySelectorAll(".side-menu_item");
+   //let allPict = document.querySelectorAll(".all");
+   let linkName = null;
+   let oldLinkName = null;
+   links.forEach(link => {
+      link.addEventListener("click", function(){
+         linkName = "." + link.dataset.item; // get value from data-item 
+
+         if (linkName != oldLinkName) {
+            removeOldElements(showCurrentElements);
+            
+            oldLinkName = linkName;
+         }
+      })   
+   })
+   
+
+   async function removeOldElements(callback){
+      let shownElements = document.querySelectorAll(".visible");
+     
+      shownElements.forEach(elem => {
+         elem.classList.add("hidden");
+         elem.classList.remove("visible");
+         console.log("1")
+         elem.addEventListener('transitionend', function(){
+            elem.classList.add("none");
+            elem.classList.remove("hidden"); console.log("2")
+         }, false);
+      })
+      
+     callback()
+   }
+
+   function showCurrentElements(){
+      let elements = Array.from(document.querySelectorAll(linkName));
+
+      elements.forEach(elem => {
+         elem.classList.remove("none"); 
+         elem.classList.add("visible"); console.log("3")
+      })
+   }
+
+
+}
+
 //start()
 activeMenuItem()
 burgerMenu()
 scrollPage()
 goToTop()
+portfolio()
+
+

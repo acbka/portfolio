@@ -189,27 +189,20 @@ h2 {
       }
    }
 }
-
-
-
 .closeMenu {
    .bar {
-       width: 25px;
-       &:first-child {
-           transform: translateY(7px) rotate(45deg);
-       }
-       &:nth-child(2) {
-           transform: scale(0);
-       }
-       &:last-child {
-           transform: translateY(-7px) rotate(-45deg);
-       }
+      width: 25px;
+      &:first-child {
+         transform: translateY(7px) rotate(45deg);
+      }
+      &:nth-child(2) {
+         transform: scale(0);
+      }
+      &:last-child {
+         transform: translateY(-7px) rotate(-45deg);
+      }
    }
 }
-
-
-
-
 .toggle{
    display: none;
 }
@@ -276,7 +269,7 @@ h2 {
 .side-menu_item {
    line-height: 2rem;
    cursor: pointer;
-   display: inline;
+   display: block;
 }
 .side-menu_item:hover {
    color: $blue;
@@ -294,6 +287,25 @@ h2 {
    height: auto;
    box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
 }
+.all{
+   opacity: 0;
+   display: block;
+   transition: all 1s ease-in;
+}
+.visible{
+   opacity: 1;
+}
+.hidden{
+   opacity: 0;
+}
+.none{
+   display: none;
+}
+
+
+
+
+
 footer {
    display: flex;
    justify-content: space-around;
