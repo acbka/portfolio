@@ -139,7 +139,6 @@ function portfolio(){
    links.forEach(link => {
       link.addEventListener("click", function(){
          let activeLink = links.find(item => item.classList.contains("active"));
-         console.log(links); console.log("activeLink", activeLink)
          activeLink.classList.remove("active");
          link.classList.add("active")
 
