@@ -271,9 +271,10 @@ h2 {
    cursor: pointer;
    display: block;
 }
-.side-menu_item:hover {
+.side-menu_item:hover, .side-menu_item.active {
    color: $blue;
 }
+
 #portfolio-content {
    grid-area: content;
    display: grid;

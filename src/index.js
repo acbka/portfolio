@@ -132,12 +132,17 @@ function goUp() {
 // portfolio
 
 function portfolio(){
-   let links = document.querySelectorAll(".side-menu_item");
+   let links = Array.from(document.querySelectorAll(".side-menu_item"));
    let allPict = document.querySelectorAll(".all");
    let linkName = null;
-   let oldLinkName = null;
+    
    links.forEach(link => {
       link.addEventListener("click", function(){
+         let activeLink = links.find(item => item.classList.contains("active"));
+         console.log(links); console.log("activeLink", activeLink)
+         activeLink.classList.remove("active");
+         link.classList.add("active")
+
          linkName = link.dataset.item; // get value from data-item 
 
          allPict.forEach(pict => {
