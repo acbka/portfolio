@@ -1,8 +1,8 @@
 $mainColor: #555;
 $blue: #3e844e;
-//$blue: #F81894;
+//green: #2b5b35;
+//$pink: #F81894;
 //$blue: #0867b0;
-//green: #243a68;
 //$blue: #4EBDD6;
 $hover: #fff;
 
@@ -274,7 +274,6 @@ h2 {
 .side-menu_item:hover, .side-menu_item.active {
    color: $blue;
 }
-
 #portfolio-content {
    grid-area: content;
    display: grid;
@@ -291,7 +290,6 @@ h2 {
 .all{
    opacity: 1;
    display: block;
-   transition: all 10s ease-in;
 }
 .hide{
    display: none;
