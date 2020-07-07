@@ -121,7 +121,7 @@ function goToTop() {
    
    function goUp() {
       if (window.pageYOffset > 0) {
-         window.scrollBy(0, -80);
+         window.scrollBy(0, -80); 
          setTimeout(goUp, 0);
       };
       document.querySelector(".active").classList.remove("active");
