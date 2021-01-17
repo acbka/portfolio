@@ -63,7 +63,7 @@ function activeMenuItem() {
       requestAnimationFrame(step);
    
       function step(time) {
-         let menuHeight = document.querySelector(".top-menu").offsetHeight;
+         //let menuHeight = document.querySelector(".top-menu").offsetHeight;
 
          if (start === null) start = time;
 
